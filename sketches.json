@@ -1,0 +1,32 @@
+{
+	"Circuit": {
+		"name": "Circuit",
+		"date": "2017-03-01",
+		"desc": ""
+	},
+	"MazeGenerator": {
+		"name": "Maze Generator",
+		"date": "2017-07-17",
+		"desc": "JavaScript maze generator using recursive back trakcing."
+	},
+	"OpenWeather": {
+		"name": "Open Weather API",
+		"date": "2016-09-16",
+		"desc": "Experimenting with live weather report with OpenWeather API calls."
+	},
+	"SmartRocket": {
+		"name": "Smart Rocket",
+		"date": "2016-08-26",
+		"desc": "Lite evolution simulation on randomized rockets to reach a specific goal."
+	},
+	"Miracle": {
+		"name": "Steam Sale Miracle",
+		"date": "2018-07-07",
+		"desc": ""
+	},
+	"SUI_scholarship": {
+		"name": "ShittyUI: Accept Your Scholarship",
+		"date": "2018-06-06",
+		"desc": "Having fun with intentionally bad UI"
+	}
+}

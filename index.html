@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Muchen He :: Resume</title>
+<title>Muchen He :: Sketches</title>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,16 +11,16 @@
 <link rel="icon" href="https://muchen.ca/favicon.ico" type="image/x-icon">
 <!-- css -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link type="text/css" rel="stylesheet" href="https://www.muchen.ca/css/default.css" />
 <!-- js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
 <script language="javascript" type="text/javascript" src="https://muchen.ca/js/default.js"></script>
 <style>
-    .jumbotron { background: #352; }
+.jumbotron { background: #352; }
+img { max-width: 200px; object-fit: cover; }
 </style>
 
 <body>
@@ -28,7 +28,7 @@
 <header class="jumbotron jumbotron-fluid px-3 py-5">
     <div class="container">
         <h1 class="display-4 text-light">Sketches</h1>
-        <p class="text-light">Sketches and mini-experiments for giggles.</p>
+        <p class="text-light">Sketches and mini-experiments mostly for fun.</p>
     </div>
 </header>
 <div id="main" class="container">
@@ -38,82 +38,96 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div id="containerTarget" class="row">
-        <!-- <div class="col-md-3 col-12 sidepan" style="background:#232323;">
-            <a href="SmartRocket/" class="sidepan">
-                <div class="sidepan-container">
-                    <h2 style="color:white;">Smart Rockets</h2>
-                    <p>Generations of "smart" rockets trying to get to a target using evolution.<br><i class="pull-right">2016-11-10</i></p>
-                </div>
-            </a>
-            <div class="sidepan_img" style="background-image:url('img/smartrockets.jpg');"></div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 sidepan" style="background: #44AA88;">
-            <a href="OpenWeather/" class="sidepan">
-                <div class="sidepan-container">
-                    <h2 style="color:white;">Weather Report</h2>
-                    <p>Live weather report of given location using OpenWeatherMap API<br><i class="pull-right">2017-01-31</i></p>
-                </div>
-            </a>
-            <div class="sidepan_img" style="background-image:url('http://i.imgur.com/JAh8aM6.png');"></div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 sidepan" style="background: #882222;">
-            <a href="CityGrid/" class="sidepan">
-                <div class="sidepan-container">
-                    <h2 style="color:white;">City Grid Generator</h2>
-                    <p>Using recursive object generation to create random city grids<br><i class="pull-right">2017-02-26</i></p>
-                </div>
-            </a>
-            <div class="sidepan_img" style="background-image:url('img/citygrid.jpg');"></div>
-        </div>
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 sidepan" style="background: #FF2255;">
-            <a href="Circuit/" class="sidepan">
-                <div class="sidepan-container">
-                    <h2 style="color:white;">I <3 Circuit</h2>
-                    <p>A randomly generated circuit graphic with a beating heart<br><i class="pull-right">2017-02-28</i></p>
-                </div>
-            </a>
-            <div class="sidepan_img" style="background-image:url('img/circuit.jpg');"></div>
-        </div> -->
-    </div>
+    <ul id="containerTarget" class="list-unstyled">
+    </ul>
 </div>
 <script>
-    $(document.ready(()=> {
+getRequestJSON();
 
-    }));
+function getRequestJSON() {
+    requestJSON((response)=> {
+        populate(response);
+    });
+}
 
-    function getRequestJSON() {
-        requestJSON((response)=> {
-            populate(response);
-        });
+function requestJSON(callback) {
+    let xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', 'sketches.json', true);
+    xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == '200') {
+            callback(xobj.responseText);
+        }
+    };
+    xobj.send(null);
+}
+
+function randomBackgroundColor() {
+    const h = rand(0, 220);
+    const s = rand(20, 80);
+    const l = rand(10, 50);
+    return 'hsl(' + h + ',' + s + '%,' + l + '%)';
+}
+
+function populate(rawData) {
+    let data = JSON.parse(rawData);
+    console.log(data);
+
+    const entries = Object.entries(data)
+    for (const [key, entryData] of entries) {
+        console.log(entryData);
+
+        // Get properties
+        const date = entryData['date'];
+        const name = entryData['name'];
+        const desc = entryData['desc'];
+        let img = ''
+        if (entryData.hasOwnProperty('img')) {
+            img = entryData['img'];
+        }
+        
+        // Image DOM
+        let imageWarpper = document.createElement('a');
+        imageWarpper.href = key;
+
+        let imageNode = document.createElement('img');
+        imageNode.className = 'mr-4';
+        imageNode.alt = name;
+        if (img !== '') {
+            imageNode.src = 'assets/' + img;
+        } else {
+            imageNode.src = 'assets/placeholder.jpg';
+        }
+        imageWarpper.appendChild(imageNode);
+
+        // Text DOM
+        let header = document.createElement('h3');
+        header.innerHTML = name;
+        header.className = 'my-0';
+
+        let descNode = document.createElement('p');
+        descNode.innerHTML = '[<em>' + date + '</em>] ' + desc;
+
+        let buttonNode = document.createElement('a');
+        buttonNode.href = key;
+        buttonNode.classList.add('btn', 'btn-sm', 'btn-outline-dark')
+        buttonNode.role = 'button';
+        buttonNode.innerHTML = 'Open Sketch';
+
+        let infoGroup = document.createElement('div');
+        infoGroup.classList.add('media-body');
+        infoGroup.appendChild(header);
+        infoGroup.appendChild(descNode);
+        infoGroup.appendChild(buttonNode);
+
+        let projectNode = document.createElement('li');
+        projectNode.classList.add('media', 'my-4');
+        projectNode.appendChild(imageWarpper);
+        projectNode.appendChild(infoGroup);
+        document.getElementById('containerTarget').appendChild(projectNode);
     }
-
-    function requestJSON() {
-        var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-        xobj.open('GET', './sketches.json', true);
-        xobj.onreadystatechange = function () {
-            if (xobj.readyState == 4 && xobj.status == '200') {
-                callback(xobj.responseText);
-            }
-        };
-        xobj.send(null);
-    }
-
-    function randomBackgroundColor() {
-        const h = rand(0, 220);
-        const s = rand(20, 80);
-        const l = rand(10, 50);
-        return 'hsl(' + h + ',' + s + '%,' + l + '%)';
-    }
-
-    function populate(data) {
-        // data is an object (need to iterate through and added to a map)
-        // TODO:
-
-        // let div = document.createElement('div');
-        // div.style.backgroundColor = randomBackgroundColor();
-    }
+}
+addFooter();
 </script>
 </body>
 </html>

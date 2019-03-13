@@ -2,13 +2,13 @@
 	"Miracle": {
 		"name": "Steam Sale Miracle",
 		"date": "2018-07-07",
-		"desc": "",
+		"desc": "A simple particle system written in 25 minutes that celebrates the joy of Steam sales.",
 		"img": "miracle.jpg"
 	},
 	"SUI_scholarship": {
 		"name": "Shitty UI: Accept Your Scholarship",
 		"date": "2018-06-06",
-		"desc": "Having fun with intentionally bad UI"
+		"desc": "Having fun with intentionally bad UI inspired by a crappy UI in a scholarship offers."
 	},
 	"MazeGenerator": {
 		"name": "Maze Generator",
@@ -19,10 +19,10 @@
 	"Circuit": {
 		"name": "Circuit",
 		"date": "2017-03-01",
-		"desc": "",
+		"desc": "Generates random circuit art.",
 		"img": "circuit.jpg"
 	},
-	"OpenWeather": {
+	"#OpenWeather": {
 		"name": "Open Weather API",
 		"date": "2016-09-16",
 		"desc": "Experimenting with live weather report with OpenWeather API calls."

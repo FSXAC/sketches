@@ -22,7 +22,7 @@
 .jumbotron { background: #352; }
 img { max-width: 200px; object-fit: cover; }
 </style>
-
+</head>
 <body>
 <script>addNavbar('Sketches');</script>
 <header class="jumbotron jumbotron-fluid px-3 py-5">
@@ -71,11 +71,13 @@ function randomBackgroundColor() {
 
 function populate(rawData) {
     let data = JSON.parse(rawData);
-    console.log(data);
 
     const entries = Object.entries(data)
     for (const [key, entryData] of entries) {
-        console.log(entryData);
+
+        if (key[0] === '#')
+            // "Commented out" projects
+            continue;
 
         // Get properties
         const date = entryData['date'];

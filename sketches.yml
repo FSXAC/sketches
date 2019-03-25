@@ -1,0 +1,28 @@
+- entry: Miracle
+  name: Steam Sale Miracle
+  date: 2018-07-07
+  desc: A simple particle system written in 25 minutes that celebrates the joy of Steam sales.
+  img: miracle.jpg
+- entry: SUI_scholarship
+  name: Shitty UI: Accept Your Scholarship
+  date: 2018-06-06
+  desc: Having fun with intentionally bad UI inspired by a crappy UI in a scholarship offers
+- entry: MazeGenerator
+  name: Maze Generator
+  date: 2017-07-17
+  desc: JavaScript maze generator using recursive back trakcing.
+  img: maze.jpg
+- entry: Circuit
+  name: Circuit
+  date: 2017-03-01
+  desc: Generates random circuit art.
+  img: circuit.jpg
+- entry: OpenWeather
+  name: Open Weather API
+  date: 2016-09-16
+  desc: Experimenting with live weather report with OpenWeather API calls.
+- entry: SmartRocket
+  name: Smart Rocket
+  date: 2016-08-26
+  desc: Lite evolution simulation on randomized rockets to reach a specific goal.
+  img: smartrockets.jpg
